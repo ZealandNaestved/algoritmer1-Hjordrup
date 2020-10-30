@@ -9,7 +9,7 @@ public class Algorithms2 {
 
     // * TODO 1 Skriv en metode her i denne klasse, som kan finde et tal i Data klassens randomNumbers1000 felt med LINEAR SEARCH
 
-    // TODO 2 Skriv en metode her i denne klasse, som kan finde et navn i Data klassens randomDrengeNavne felt med LINEAR SEARCH
+    // * TODO 2 Skriv en metode her i denne klasse, som kan finde et navn i Data klassens randomDrengeNavne felt med LINEAR SEARCH
 
     // TODO 3 Skriv en metode her i denne klasse, som kan returnere et sorteret array fra randomNumbers1000
 
@@ -21,11 +21,11 @@ public class Algorithms2 {
 
 
     public static void main(String[] args) {
-        System.out.println("*************lineSearch of array for chosen num");
+        System.out.println("*************lineSearch of array for a chosen number");
         Algorithms2 a2 = new Algorithms2();
-        System.out.println(a2.lineSearch(271));
-
-
+        System.out.println(a2.lineSearchNum(271));
+        System.out.println("*************lineSearch of array for a chosen Name");
+        System.out.println(a2.lineSearchName("Awesome"));
 
 
 
@@ -33,11 +33,7 @@ public class Algorithms2 {
 
 
 
-
-
-
-
-    public String lineSearch(int n){
+    public String lineSearchNum(int n){
         Data data = new Data();
 
         int[] intArray = data.getRandomNumbers1000();
@@ -51,7 +47,23 @@ public class Algorithms2 {
         }
 
 
+
+
+    public String lineSearchName(String Name){
+        Data data = new Data();
+
+        String[] stringArray = data.getRandomDrengeNavne();
+
+        for (int i = 0; i < stringArray.length; i++) {
+            if ( Name.equals(stringArray[i]))
+                return "The name you are looking for is  " + Name + " and is located in the array on the " + i + " position:";
+        }
+        return "The name " + Name + " is not in the array";
+
     }
+
+
+}
 
 
 
