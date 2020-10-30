@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Developed by András Ács (acsandras@gmail.com)
  * Zealand / www.zealand.dk
@@ -11,7 +13,7 @@ public class Algorithms2 {
 
     // * TODO 2 Skriv en metode her i denne klasse, som kan finde et navn i Data klassens randomDrengeNavne felt med LINEAR SEARCH
 
-    // TODO 3 Skriv en metode her i denne klasse, som kan returnere et sorteret array fra randomNumbers1000
+    // * TODO 3 Skriv en metode her i denne klasse, som kan returnere et sorteret array fra randomNumbers1000
 
     // TODO 3 Skriv en metode her i denne klasse, som kan returnere et sorteret array fra randomDrengeNavne
 
@@ -26,13 +28,17 @@ public class Algorithms2 {
         System.out.println(a2.lineSearchNum(271));
         System.out.println("*************lineSearch of array for a chosen Name");
         System.out.println(a2.lineSearchName("Awesome"));
-
-
+        System.out.println();
+        System.out.println("*************sorting Number Array ");
+        System.out.println(Arrays.toString(a2.sortedArray()));
 
     }
 
 
+// Methods
 
+
+    // Search method to find a chosen number in the RandomNumbers1000 array.
     public String lineSearchNum(int n){
         Data data = new Data();
 
@@ -46,9 +52,7 @@ public class Algorithms2 {
 
         }
 
-
-
-
+    // Search method to find a chosen Name in the RandomDrengeNavne array.
     public String lineSearchName(String Name){
         Data data = new Data();
 
@@ -61,6 +65,51 @@ public class Algorithms2 {
         return "The name " + Name + " is not in the array";
 
     }
+
+    //Method that can sort the array randomNumbers1000
+
+    public int[] sortedArray(){
+        Data data = new Data();
+
+       int[] intArray = data.getRandomNumbers1000();
+        ;
+        for (int i = 0; i < intArray.length -1; i++) {
+            int temp = intArray[i];
+            int currentMinindeks = i;
+
+            for (int j = i+1; j < intArray.length ; j++) {
+                if(temp>intArray[j]){
+                    temp = intArray[j];
+                    currentMinindeks =j;
+                }
+            }
+            if (currentMinindeks != i ){
+                intArray[currentMinindeks] = intArray[i];
+                intArray[i] = temp;
+            }
+
+        } return intArray;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
